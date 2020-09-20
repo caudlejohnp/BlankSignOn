@@ -30,6 +30,9 @@
     >
       Sign In
     </button>
+    <label class="alert alert-danger" *ngIf="!validLogin"
+      >Invalid Email and/or Password</label
+    >
   </form>
   <a routerLink="/register">Register</a>
 </div>

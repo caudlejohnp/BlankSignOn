@@ -6,6 +6,7 @@ import { AppComponent } from "./app.component";
 import { SignInComponent } from "./sign-in/sign-in.component";
 import { RegistrationComponent } from "./registration/registration.component";
 import { UserProfileComponent } from "./user-profile/user-profile.component";
+import { AuthModule } from "./auth/auth.module";
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { UserProfileComponent } from "./user-profile/user-profile.component";
     RegistrationComponent,
     UserProfileComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, AuthModule],
   providers: [],
   bootstrap: [AppComponent],
 })

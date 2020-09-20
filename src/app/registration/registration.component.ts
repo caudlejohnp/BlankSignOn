@@ -7,6 +7,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { Router } from "@angular/router";
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: "app-registration",
@@ -41,7 +42,7 @@ export class RegistrationComponent implements OnInit {
     return this.formSubmit.hasError("passwordError");
   }
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) {
     this.formSubmit = this.formBuilder.group(
       {
         inputEmail: ["", Validators.email],
@@ -70,6 +71,8 @@ export class RegistrationComponent implements OnInit {
 
   submit(): void {
     console.log(this.formSubmit.value);
+    this.authService.register(this.formSubmit.controls.inputEmail.value,
+      this.formSubmit.controls.inputPassword.value);
     this.router.navigate(["/signin"]);
   }
 
